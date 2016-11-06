@@ -18,9 +18,6 @@ io.on('connection', function(socket){
     socket.on('client_message', function(msg){
         io.emit('client_message', "Client: "+msg);
     });
-    socket.on('client_message', function(msg){
-        io.emit('client_message', "Client: "+msg);
-    });
 });
 
 http.listen(port, function(){
