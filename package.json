@@ -1,6 +1,7 @@
 {
   "name": "EDD_Cloud",
   "version": "0.0.1",
+  "main":"index.js",
   "dependencies":
   {"express":"latest",
     "socket.io":"latest"
