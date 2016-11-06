@@ -4,7 +4,7 @@ var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 
 app.get('/', function(req, res){
-    res.sendfile('index.html');
+    res.send('You made a connection to the server');
 });
 
 io.on('connection', function(socket){
@@ -12,8 +12,14 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
-    socket.on('chat message', function(msg){
-        io.emit('chat message', msg);
+    socket.on('drone_message', function(msg){
+        io.emit('drone_message',"Drone: "+ msg);
+    });
+    socket.on('client_message', function(msg){
+        io.emit('client_message', "Client: "+msg);
+    });
+    socket.on('client_message', function(msg){
+        io.emit('client_message', "Client: "+msg);
     });
 });
 
